@@ -13,6 +13,14 @@ namespace proiect2.Controllers
     {
         private ApplicationDbContext db = ApplicationDbContext.Create();
 
+        public ActionResult All()
+        {
+            var events = db.Events.OrderByDescending(m => m.Date).ToList();
+            ViewBag.Events = events; 
+
+            return View();
+        }
+
         [Authorize(Roles = "User,Host,Administrator")]
         public ActionResult Index()
         {

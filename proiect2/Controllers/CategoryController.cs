@@ -12,6 +12,25 @@ namespace proiect2.Controllers
     {
         private ApplicationDbContext db = ApplicationDbContext.Create();
 
+
+        [HttpGet]
+        public ActionResult All()
+        {
+            var categories = db.Categories.OrderBy(m => m.Name).ToList();
+            ViewBag.Categories = categories;
+           
+            return View();
+        }
+
+        public ActionResult Events(int id)
+        {
+            var cat = db.Categories.Find(id);
+            ViewBag.Events = cat.Events;
+            ViewBag.CategoryName = cat.Name;
+
+            return View();
+        }
+
         [Authorize(Roles = "User,Host,Administrator")]
         public ActionResult Index()
         {

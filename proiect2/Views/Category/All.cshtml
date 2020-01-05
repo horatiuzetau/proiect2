@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "All";
+}
+<h1 class="panel-heading text-center " style="letter-spacing: 5px; font-weight: bold; font-family: sans-serif;">categorii</h1>
+<hr />
+<div class="cat-container">
+    @if (ViewBag.Categories.Count != 0 )
+    {
+        foreach (proiect2.Models.alex.Category cat in ViewBag.Categories)
+        {
+            <a href="/Category/Events/@cat.Id" class="cat-card">
+                <span>@cat.Name</span>
+            </a>
+        }
+    }
+    else
+    {
+        <span>Nu exista nicio categorie...</span>
+    }
+</div>

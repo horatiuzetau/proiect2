@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Cool application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,16 +17,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("eTicketz", "All", "Event", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Events", "All", "Event")</li>
+                    <li>@Html.ActionLink("Categories", "All", "Category")</li>
+
                     <li>@Html.ActionLink("Add event", "New", "Event")</li>
-                    <li>@Html.ActionLink("Show events", "Index", "Event")</li>
                     <li>@Html.ActionLink("Add category", "New", "Category")</li>
-                    <li>@Html.ActionLink("Show categories", "Index", "Category")</li>
-                    <li>@Html.ActionLink("Show Users", "Index", "User")</li>
+                    @*
+        <li>@Html.ActionLink("Show events", "Index", "Event")</li>
+        <li>@Html.ActionLink("Show categories", "Index", "Category")</li>
+        <li>@Html.ActionLink("Show Users", "Index", "User")</li>
+                    *@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,9 +38,8 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer >
+            <span class="text-center">&copy; @DateTime.Now.Year - Echipa Bocanate</span>
         </footer>
     </div>
 

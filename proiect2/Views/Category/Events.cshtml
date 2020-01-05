@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Events";
+}
+
+<h1 class="panel-heading text-center " style="letter-spacing: 5px; font-weight: bold; font-family: sans-serif;">evenimente (@ViewBag.CategoryName)</h1>
+<hr />
+<div class="event-list-container">
+    @if (ViewBag.Events.Count != 0)
+    {
+        foreach (proiect2.Models.alex.Event ev in ViewBag.Events)
+        {
+            <a href="/Event/Show/@ev.Id" class="event-card">
+                <span>@ev.Title</span>
+                <cite class="card-date">@ev.Date</cite>
+            </a>
+        }
+    }
+    else
+    {
+        <span>Nu exista niciun eveniment in aceasta categorie.</span>
+    }
+</div>

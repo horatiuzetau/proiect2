@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "SeeFriends";
+}
+
+<h2>SeeFriends</h2>
+
+@foreach(proiect2.Models.ApplicationUser friend in ViewBag.friends)
+{
+    <h1>@friend.UserName</h1>
+}

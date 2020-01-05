@@ -1,0 +1,7 @@
+﻿
+@using (Html.BeginForm(actionName: "AcceptFriendRequest", controllerName: "Social", method: FormMethod.Post ,
+                    routeValues: new { fromId = Model.Id }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <button type="submit" class="btn btn-success">Acept</button>
+}

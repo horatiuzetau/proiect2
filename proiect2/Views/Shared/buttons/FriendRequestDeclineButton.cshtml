@@ -1,0 +1,6 @@
+﻿@using (Html.BeginForm(actionName: "DeclineFriendRequest", controllerName: "Social", method: FormMethod.Post,
+                                routeValues: new {fromId = Model.Id }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit" class="btn btn-danger">DECLINE</button>
+}

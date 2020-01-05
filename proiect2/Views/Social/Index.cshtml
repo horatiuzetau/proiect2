@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNet.Identity;
+@using proiect2.Models.hory;
+@{
+    ViewBag.Title = "Index";
+}
+
+<hr />
+@if (ViewBag.Mesaj != null)
+{
+    <div class="alert alert-info">@ViewBag.Mesaj</div>
+    <hr />
+}
+
+<h2>Index</h2>
+<a href="/Social/SeeFriendRequests">See friend requests...</a>
+<br />
+<a href="/Social/SeeFriends">See my friend list...</a>
+
+@foreach (proiect2.Models.usefull.UserListItem user in ViewBag.Users)
+{
+    <h1 data-id="@user.Id">@user.Name</h1>
+    switch (user.Status)
+    {
+        case RequestStatus.NULL:
+            @Html.Partial("buttons/FriendRequestSendButton", user)
+            break;
+        case RequestStatus.PENDING:
+            @Html.Partial("buttons/FriendRequestAcceptButton", user)
+            @Html.Partial("buttons/FriendRequestDeclineButton", user)
+            break;
+        case RequestStatus.SENT:
+            <cite>SENT </cite>
+            @Html.Partial("buttons/FriendRequestCancelButton", user)
+            break;
+        case RequestStatus.ACCEPTED:
+            <cite>Friends</cite>
+            @Html.Partial("buttons/RemoveFriendButton", user)
+            break;
+        default:
+            <cite>@user.Status</cite>
+            break;
+    }
+
+}

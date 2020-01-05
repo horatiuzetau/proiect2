@@ -1,0 +1,5 @@
+﻿@using (Html.BeginForm(actionName: "SendFriendRequest", controllerName: "Social", method: FormMethod.Post,
+     routeValues: new { toId = Model.Id }))
+{
+    <button type="submit" class="btn btn-success">Adauga</button>
+}

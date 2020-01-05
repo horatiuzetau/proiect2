@@ -170,14 +170,19 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\hory\FriendRequest.cs" />
+    <Compile Include="Models\hory\FriendShip.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="usefull\UsefullClasses.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="usefull\UsefullMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -235,11 +240,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Social\Index.cshtml" />
+    <Content Include="Views\Social\SeeFriendRequests.cshtml" />
+    <Content Include="Views\Shared\buttons\FriendRequestCancelButton.cshtml" />
+    <Content Include="Views\Shared\buttons\FriendRequestSendButton.cshtml" />
+    <Content Include="Views\Social\SeeFriends.cshtml" />
+    <Content Include="Views\Shared\buttons\FriendRequestDeclineButton.cshtml" />
+    <Content Include="Views\Shared\buttons\FriendRequestAcceptButton.cshtml" />
+    <Content Include="Views\Shared\buttons\RemoveFriendButton.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\hory\" />
-    <Folder Include="usefull\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

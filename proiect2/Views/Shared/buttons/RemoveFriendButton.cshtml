@@ -1,0 +1,5 @@
+﻿@using(Html.BeginForm(actionName: "RemoveFromFriends", controllerName: "Social", method: FormMethod.Post, routeValues: new { friendId = Model.Id }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit" class="btm btn-danger">Remove friend</button>
+}

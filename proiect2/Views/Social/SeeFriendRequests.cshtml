@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "SeeFriendRequests";
+}
+    <hr />
+<h2>SeeFriendRequests</h2>
+<a href="/Social">See users...</a>
+<br /><br />
+
+@foreach (var fr in ViewBag.FriendRequests)
+{
+    <div>@fr.Name - @fr.Id</div>
+    <cite>@fr.OutputTimeBetween</cite>
+}

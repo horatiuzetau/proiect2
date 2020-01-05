@@ -1,0 +1,7 @@
+﻿
+@using(Html.BeginForm(actionName: "CancelFriendRequest", controllerName: "Social", method: FormMethod.Post,
+                    routeValues: new { toId = Model.Id }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete);
+    <button type="submit" class="btn btn-danger">Cancel</button>
+}

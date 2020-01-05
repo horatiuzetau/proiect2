@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Categorii";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if(ViewBag.Mesaj != null)
+{
+    <div class="alert alert-info">@ViewBag.Mesaj</div>
+}
+
+@foreach(var category in ViewBag.Categories)
+{
+    <p>@category.Name</p>
+    <a href="/Category/Show/@category.Id">Afisare categorie</a>
+    <br />
+    <hr />
+    <br />
+}
+
+
+

@@ -1,0 +1,20 @@
+﻿@model proiect2.Models.alex.Category
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="post" action="/Category/Edit/@ViewBag.Category.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    <label>Nume</label>
+    <br />
+    <input type="text" name="Name" value="@ViewBag.Category.Name" />
+    <button type="submit">Modifica categorie</button>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

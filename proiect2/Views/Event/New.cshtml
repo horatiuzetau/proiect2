@@ -1,0 +1,26 @@
+﻿@model proiect2.Models.alex.Event
+@{
+    ViewBag.Titlu = "Adaugare articol";
+}
+<h2>@ViewBag.Titlu</h2>
+<br />
+<form method="post" action="/Event/New">
+    @Html.HiddenFor(m => m.UserId)
+    @Html.Label("Title", "Titlu eveniment")
+    <br />
+    @Html.TextBox("Title", null, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Content", "Continut eveniment")
+    <br />
+    @Html.TextArea("Content", null, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Date", "Selectati data la care va avea loc evenimentul")
+    <br />
+
+    @Html.TextBoxFor(m => m.Date, new { @type = "date", @class = "form-control datepicker", @Value = Model.Date.ToString("yyyy-MM-dd") })
+    <label>Selectati categoria</label>
+    @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categories, "Value", "Text"), "Selectati genul", new { @class = "form-control" })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Adauga eveniment</button>
+</form>
+

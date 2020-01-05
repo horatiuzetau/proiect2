@@ -1,0 +1,30 @@
+﻿@model proiect2.Models.alex.Event
+
+@{
+    ViewBag.Titlu = "Editare eveniment";
+}
+
+<h2>@ViewBag.Titlu</h2>
+
+<form method="post" action="/Event/Edit/@Model.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HiddenFor(m => m.Id)
+    <br />
+    @Html.Label("Title", "Titlu eveniment")
+    <br />
+    @Html.EditorFor(m => m.Title)
+    <br /><br />
+    @Html.Label("Content", "Continut eveniment")
+    <br />
+    @Html.EditorFor(m => m.Content)
+    <br /><br />
+    @Html.Label("Date", "Data eveniment")
+    @Html.TextBoxFor(m => m.Date, new { @type = "date", @class = "form-control datepicker", @Value = Model.Date.ToString("yyyy-MM-dd") })
+    <br />
+
+    @Html.DropDownListFor(m => m.CategoryId,
+    new SelectList(Model.Categories, "Value", "Text"),
+    "Selectati genul", new { @class = "form-control" })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Modifica eveniment</button>
+</form>

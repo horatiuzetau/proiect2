@@ -1,0 +1,51 @@
+﻿@model proiect2.Models.alex.Event
+    
+@{ 
+    ViewBag.Title = "Show";
+}
+
+@if (TempData["messageAdd"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["messageAdd"].ToString()</p>
+}
+@if (TempData["messageEdit"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["messageEdit"].ToString()</p>
+}
+<h1>Afisare eveniment</h1>
+<div class="panel panel-default">
+    <div class="panel-heading">@Model.Title</div>
+    <div class="panel-body">
+        Continut articol: <strong>@Model.Content</strong>
+        <br />
+        <span class="label label-success">@Model.Date.ToString("dd/MM/yyyy")</span>
+        <br />
+        <i class="glyphicon glyphicon-globe"></i>@Model.Category.Name
+    </div>
+    <div class="panel panel-default">
+        @if (ViewBag.showButtons == true && Model.UserId ==
+        ViewBag.currentUser || ViewBag.isAdmin)
+        {
+            <div class="panel-footer">
+                <a class="btn btn-success"
+                   href="/Event/Edit/@Model.Id">Modifica eveniment</a>
+                <br />
+            </div>
+        }
+    </div>
+</div>
+<form method="post" action="/Event/Delete/@Model.Id">
+    <br />
+    <div class="panel panel-default">
+        @if (ViewBag.showButtons == true && Model.UserId ==
+        ViewBag.currentUser || ViewBag.isAdmin)
+        {
+        <div class="panel-footer">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button class="btn btn-success" type="submit">Sterge eveniment</button>
+        </div>
+        }
+    </div>
+
+</form>
+

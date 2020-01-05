@@ -1,0 +1,39 @@
+﻿@model proiect2.Models.alex.Event
+
+@{
+    ViewBag.Title = "Evenimente";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+@if (TempData["messageDelete"] != null)
+{
+    <p class="alert alert-warning" id="successMessage">@TempData["messageDelete"].ToString()</p>
+}
+
+@if (TempData["messageAuth"] != null)
+{
+    <p class="alert alert-warning" id="successMessage">@TempData["messageAuth"].ToString()</p>
+}
+
+@foreach (proiect2.Models.alex.Event eve in ViewBag.Events)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">@eve.Title</div>
+        <div class="panel-body">
+            Continut articol: <strong>@eve.Content</strong>
+            <br />
+            <span class="label label-info">@eve.Date.ToString("dd/MM/yyyy")</span>
+            <br />
+            <i class="glyphicon glyphicon-globe"></i> @eve.Category.Name
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-sm btn-success"
+               href="/Event/Show/@eve.Id">Afisare articol</a>
+        </div>
+    </div>
+    <br />
+}
+
+
